@@ -1,26 +1,19 @@
-import React from "react";
+import React from "react"
 
-import * as ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
-import {
-  TweenMax,
-  TimelineMax,
-  Power1,
-  Power2,
-  Back,
-  Expo,
-  Power4
-} from "gsap";
-import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+import * as ScrollMagic from "scrollmagic" // Or use scrollmagic-with-ssr to avoid server rendering problems
+import { TweenMax, TimelineMax, Power1, Power2, Back, Expo, Power4 } from "gsap"
+import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap"
+import { Row, Col } from "reactstrap"
 
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax)
 
 // import 'imports-loader?scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js';
 
 export default class Animation extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = {};
+    this.state = {}
   }
 
   componentDidMount() {
@@ -37,9 +30,9 @@ export default class Animation extends React.Component {
         { x: 800, y: 0 },
         { x: window.innerWidth, y: -250 }
       ]
-    };
+    }
 
-    const tween = new TimelineMax();
+    const tween = new TimelineMax()
 
     tween
       .to(".paper-plane", 3, {
@@ -52,7 +45,7 @@ export default class Animation extends React.Component {
         { opacity: 0, ease: Power1.easeInOut }
         // 3
         // "+=3"
-      );
+      )
 
     ///////////////// Chainer des tweens FAILED //////////////////
 
@@ -78,7 +71,7 @@ export default class Animation extends React.Component {
     //   )
     // );
 
-    const controller = new ScrollMagic.Controller();
+    const controller = new ScrollMagic.Controller()
 
     new ScrollMagic.Scene({
       triggerElement: ".animation",
@@ -87,7 +80,7 @@ export default class Animation extends React.Component {
     })
       .setTween(tween)
       .setPin(".animation")
-      .addTo(controller);
+      .addTo(controller)
 
     // function scrollAnimation2() {
     //   const tween = new TimelineMax();
@@ -111,10 +104,10 @@ export default class Animation extends React.Component {
     //     )
     // );
 
-    this.scrollAnimation3();
-    this.scrollAnimation4();
-    this.scrollText();
-    this.scrollMenu();
+    // this.scrollAnimation3();
+    // this.scrollAnimation4();
+    // this.scrollText()
+    this.scrollMenu()
     // this.scrollMenu2();
 
     // const tween = new TimelineMax();
@@ -139,7 +132,7 @@ export default class Animation extends React.Component {
   }
 
   scrollAnimation3 = () => {
-    const tween = new TimelineMax();
+    const tween = new TimelineMax()
 
     tween.add(
       TweenMax.fromTo(
@@ -156,7 +149,7 @@ export default class Animation extends React.Component {
         }
         // ".animation2"
       )
-    );
+    )
     tween.fromTo(
       ".bac",
       1,
@@ -171,7 +164,7 @@ export default class Animation extends React.Component {
         x: -50,
         skewX: -10
       }
-    );
+    )
     tween.fromTo(
       ".bac-img",
       2,
@@ -187,7 +180,7 @@ export default class Animation extends React.Component {
         skewX: -10
         // onComplete: tween.from(".animation-4", 2, { y: "-200%" })
       }
-    );
+    )
     // tween.to(
     //   ".animation-3",
     //   2,
@@ -198,7 +191,7 @@ export default class Animation extends React.Component {
     // );
     // tween.set(".animation-3", { autoAlpha: 0 }, "+=4");
 
-    const controller = new ScrollMagic.Controller();
+    const controller = new ScrollMagic.Controller()
 
     new ScrollMagic.Scene({
       triggerElement: ".animation-3",
@@ -207,19 +200,19 @@ export default class Animation extends React.Component {
     })
       .setTween(tween)
       .setPin(".animation-3")
-      .addTo(controller);
-  };
+      .addTo(controller)
+  }
 
   scrollAnimation4 = () => {
-    const tl = new TimelineMax();
+    const tl = new TimelineMax()
 
     tl.to(".animation-4", 2, {
       top: "0%",
       ease: Expo.easeInOut,
       delay: -2
-    });
+    })
 
-    const controller = new ScrollMagic.Controller();
+    const controller = new ScrollMagic.Controller()
 
     new ScrollMagic.Scene({
       triggerElement: ".animation-2",
@@ -228,20 +221,20 @@ export default class Animation extends React.Component {
     })
       .setTween(tl)
       .setPin(".animation-4")
-      .addTo(controller);
-  };
+      .addTo(controller)
+  }
 
-  scrollText = () => {
-    const tween = new TimelineMax();
+  scrollTextOld = () => {
+    const tween = new TimelineMax()
     tween.staggerFrom(
       ".hide-text",
       2,
       { y: "200%", ease: Power4.easeOut },
       0.25
-    );
-    tween.from(".bag-img", 2, { opacity: 0, y: "-100%" }, "-=2");
+    )
+    tween.from(".bag-img", 2, { opacity: 0, y: "-100%" }, "-=2")
 
-    const controller = new ScrollMagic.Controller();
+    const controller = new ScrollMagic.Controller()
 
     new ScrollMagic.Scene({
       triggerElement: ".big-text",
@@ -250,37 +243,37 @@ export default class Animation extends React.Component {
     })
       .setTween(tween)
       .setPin(".big-text")
-      .addTo(controller);
-  };
+      .addTo(controller)
+  }
 
   scrollMenu = () => {
-    const tween = new TimelineMax();
+    const tween = new TimelineMax()
 
     tween.to(".h1", 1.7, {
       top: "0%",
       opacity: 0,
       delay: 3
-    });
+    })
 
     tween.to(".menu", 4, {
       top: "0%",
       ease: Expo.easeInOut,
       delay: -2
-    });
+    })
 
     tween.staggerFrom(
       ".menu ul li",
       2,
       { x: -200, opacity: 0, ease: Expo.easeOut, delay: 4 },
       0.3
-    );
+    )
     tween.to(".menu2", 4, {
       right: "50%",
       // skewX: "(15deg)", MARCHE PAS
       transform: "skewX(15deg)",
       ease: Expo.easeInOut
       // delay: 3
-    });
+    })
     tween.to(
       ".menu",
       1,
@@ -288,15 +281,15 @@ export default class Animation extends React.Component {
         opacity: 0
       },
       "-=2"
-    );
+    )
     tween.to(
       ".menu2",
       1,
       {
-        right: "110%"
+        right: "180%"
       },
       "+=3"
-    );
+    )
     tween.to(
       ".menu3",
       3,
@@ -305,16 +298,27 @@ export default class Animation extends React.Component {
         transform: "skewY(15deg)"
       },
       "-=1"
-    );
+    )
+    tween.to(
+      ".inverse-skew",
+      3,
+      {
+        opacity: 1,
+        ease: Power1.easeInOut
+        // delay: 3
+      },
+      "-=5"
+    )
     tween.to(
       ".menu3",
       2,
       {
-        bottom: "130%"
+        bottom: "130%",
+        delay: 3
         // transform: "skewY(15deg)"
       },
-      "+=4"
-    );
+      "+=6"
+    )
     tween.to(
       ".menu4",
       3,
@@ -323,7 +327,7 @@ export default class Animation extends React.Component {
         delay: -2
       },
       "+=3"
-    );
+    )
     tween.fromTo(
       ".menu5",
       3,
@@ -337,9 +341,9 @@ export default class Animation extends React.Component {
         transform: "rotateY(0deg)",
         opacity: 1
       }
-    );
+    )
 
-    const controller = new ScrollMagic.Controller();
+    const controller = new ScrollMagic.Controller()
 
     new ScrollMagic.Scene({
       triggerElement: ".trigger-div",
@@ -348,16 +352,16 @@ export default class Animation extends React.Component {
     })
       .setTween(tween)
       .setPin(".trigger-div")
-      .addTo(controller);
-  };
+      .addTo(controller)
+  }
 
   scrollButton = () => {
-    const tween = new TimelineMax();
+    const tween = new TimelineMax()
 
     tween.to(".menu5", 2, {
       right: "-100%",
       ease: Power4.easeInOut
-    });
+    })
     tween.to(
       ".menu6",
       2,
@@ -368,7 +372,7 @@ export default class Animation extends React.Component {
         ease: Power4.easeInOut
       },
       "-=2"
-    );
+    )
     tween.to(
       ".menu5",
       1,
@@ -376,8 +380,31 @@ export default class Animation extends React.Component {
         display: "none"
       },
       "-=1"
-    );
-  };
+    )
+  }
+
+  scrollText = () => {
+    const tween = new TimelineMax()
+    tween.to(
+      ".inverse-skew",
+      2,
+      {
+        opacity: 1,
+        ease: Power1.easeInOut
+      },
+      "+=2"
+    )
+    const controller = new ScrollMagic.Controller()
+
+    new ScrollMagic.Scene({
+      triggerElement: ".menu2",
+      triggerHook: 0,
+      duration: 2000
+    })
+      .setTween(tween)
+      // .setPin(".menu2")
+      .addTo(controller)
+  }
 
   // scrollMenu2 = () => {
   //   const tween = new TimelineMax();
@@ -430,7 +457,37 @@ export default class Animation extends React.Component {
           </div>
         </div>
 
-        <div className="menu2" />
+        <div className="menu2">
+          <Row className="inverse-skew">
+            <Col lg="6" className="col-bag">
+              <h1 className="bag-title">Bag Tools</h1>
+              <h1>
+                <span>
+                  Nous avons vu qu’un algorithme était en mesure de simplifier
+                  et industrialiser le travail artisanal d’un développeur
+                  réalisant une plateforme web ou une application mobile, et
+                  idéalement décupler sa productivité.
+                </span>
+              </h1>
+              <h1>
+                <span>
+                  - Développement d’un algorithme de reconnaissance et
+                  d’interprétation d’un besoin / cahier des charges.
+                </span>
+              </h1>
+              <h1>
+                <span>
+                  - Création de contenus adaptés à notre métalangage pour
+                  augmenter le degré d’agnosticité de l’outil créé au langage de
+                  développement souhaité in fine.
+                </span>
+              </h1>
+            </Col>
+            <Col lg="6" className="col-bag">
+              <img src="/img/bag.jpg" className="bag-img" alt="bag-img" />
+            </Col>
+          </Row>
+        </div>
         <div className="menu3" />
         <div className="menu4" />
         <div className="menu5">
@@ -438,7 +495,100 @@ export default class Animation extends React.Component {
             Scroll Animation
           </btn>
         </div>
+
         <div className="menu6" />
+        {/* 
+        <div className="loader" ref={div => (this.loaderWrap = div)}>
+          {window.innerWidth > 992 ? (
+            <i
+              ref={e => (this.toggleBtn = e)}
+              onClick={this.toggleLoaderHandlerMobile}
+              // onClick={() => this.setState({ isContainerFixed: false })}
+              className="fas fa-chevron-circle-left fa-2x fa-hosting"
+            />
+          ) : null}
+          <Row className="row-hosting view-content view1">
+            <Col
+              lg="6"
+              className="description-hosting"
+              ref={div => (this.fadeHosting = div)}>
+              <div className="licorn-div">
+                <img src="assets/pictures/licorne.png" className="licorn" />
+                <h1 className="h1-hosting">Bluescale</h1>
+              </div>
+              <h2 className="h2-hosting">Une solution d'hébergement </h2>
+              <p className="p-hosting ">
+                Bluescale est une solution d’hébergement premium Backups, Haute
+                disponibilité, Réseau de serveurs, Infogérance.. découvrez
+                comment tirer au mieux profit de votre plateforme.
+              </p>
+            </Col>
+            <Col lg="6" className="img-scale">
+              <img
+                className="img-hosting"
+                src="assets/pictures/bckg-2-hosting.png"
+              />
+            </Col>
+          </Row>
+          {/* <Contact className="view-content view2" /> */}
+        {/* <div className="trigger-scale" /> */}
+        {/* <Row className="row-hosting row-scale view-content view1 trigger-scale">
+            <Col xl="6" className="img-hosting-2">
+              <img
+                src="assets/pictures/blue-hosting-3.png"
+                style={{ maxWidth: "85%", height: "auto" }}
+              />
+            </Col>
+            <Col
+              xl="6"
+              className="description-hosting d-h"
+              ref={div => (this.fadeHosting = div)}>
+              <p className="p-hosting p-h">
+                ■ Dans le cas classique d’un VPS chez un hébergeur,{" "}
+                <span className="bold">
+                  {" "}
+                  la charge du traffic repose uniquement sur un server.
+                </span>{" "}
+                De plus ce server doit stocker le contenu multimédia (images,
+                pdf...), et doit gérer la connexion à la base de données.
+              </p>
+              <p className="p-hosting p-h">
+                ■ Une backup de tout l’ensemble est réalisée par l’hébergeur.
+              </p>
+              {"\n"}
+              <p className="p-hosting p-h">
+                ■ Dans l’offre proposée par Bluesquare,{" "}
+                <span className="bold">
+                  {" "}
+                  la charge est répartie intelligemment sur plusieurs servers
+                </span>{" "}
+                dont le nombre peut évoluer
+                <span className="bold"> (load balancing)</span>. De plus, ces
+                servers se concentrent sur le calcul server et n’ont ni les
+                images à stocker, ni la base de données à stocker.
+              </p>
+              <p className="p-hosting p-h">
+                ■ La base de donnée est{" "}
+                <span className="bold">externalisée et backupée.</span>
+              </p>
+              <p className="p-hosting p-h">
+                ■ Les images sont externalisés,{" "}
+                <span className="bold">
+                  automatiquement compressées et optimisées pour le web{" "}
+                </span>
+                , et backupées.
+              </p>
+              <p className="p-hosting p-h">
+                ■ De plus, nous avons en cas de détresse un{" "}
+                <span className="bold">
+                  {" "}
+                  server de secours et un server de préproduction.
+                </span>
+              </p>
+            </Col>
+          </Row>
+          <Bag /> */}
+        {/* </div>  */}
 
         {/* <header>
           <h2>Scroll Animation</h2>
@@ -493,6 +643,6 @@ export default class Animation extends React.Component {
           <h2>End Scroll Animation</h2>
         </footer> */}
       </div>
-    );
+    )
   }
 }
