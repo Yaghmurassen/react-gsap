@@ -1,0 +1,255 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+header,
+footer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animation {
+  height: 100vh;
+  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+}
+
+.animation-2 {
+  height: 100vh;
+  background: linear-gradient(to right, #4cb8c4, #3cd3ad);
+  /* overflow: hidden; */
+  /* right: 0px; */
+}
+
+.animation-3 {
+  height: 100vh;
+  background: linear-gradient(to right, #ff512f, #f09819);
+}
+
+.animation-4 {
+  height: 100vh;
+  background: linear-gradient(to right, #859398, #283048);
+
+  /* position: absolute; */
+  /* width: 100%; */
+  /* height: 100%; */
+}
+
+.paper-plane,
+.paper-plane-2,
+.paper-plane-3,
+.paper-plane-4 {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 100px;
+}
+
+.bac {
+  position: absolute;
+  right: -48%;
+  top: 40%;
+  text-align: justify;
+  font-size: 20px;
+  line-height: 1.8;
+  max-width: 40%;
+  /* background-color: white; */
+  /* padding: 20px; */
+  border-radius: 5px;
+  /* box-shadow: 7px 7px 15px 0 #411f1942; */
+}
+
+.bac-img {
+  width: 47%;
+  height: auto;
+  position: absolute;
+  top: 30%;
+  /* right: -45%; */
+}
+
+.panel-container {
+  margin: 0 auto;
+  padding: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+}
+.big-text {
+  text-align: left;
+  height: 100vh;
+  background: linear-gradient(to right, #2ebf91, #8360c3);
+  padding-top: 280px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+
+/* h1 { */
+/* text-transform: uppercase; */
+/* position: relative;
+  color: black;
+  overflow: hidden;
+  font-size: 25px;
+  height: 280px;
+  line-height: 1.6;
+  width: 50%;
+  margin: unset;
+  text-align: justify;
+} */
+
+.h1-first {
+  height: 255px;
+}
+.h1-second {
+  height: 170px;
+}
+
+.hide-text {
+  position: absolute;
+  z-index: 200;
+  /* top: 175px;   */
+  top: 95px;
+  left: 10%;
+}
+
+.bag-img {
+  width: 40%;
+  height: auto;
+  position: absolute;
+  right: 5%;
+  bottom: 20%;
+  border-radius: 20px;
+}
+
+/* //// TEST /// */
+
+.h1 {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 48px;
+  font-family: "Playfair Display";
+  font-weight: lighter;
+}
+
+.menu,
+.menu2,
+.menu3,
+.menu4,
+.menu5,
+.menu6 {
+  z-index: 0;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+}
+
+.menu {
+  background: #101010;
+  top: -100%;
+}
+
+.menu2 {
+  background: linear-gradient(113deg, #649cff, rgba(25, 159, 197));
+  right: -100%;
+  transform: skewX(0deg);
+}
+
+.menu3 {
+  background: linear-gradient(to right, #fc00ff, #00dbde);
+  transform: skewY(0deg);
+  bottom: -100%;
+}
+
+.menu4 {
+  left: -100%;
+  background: linear-gradient(to right, #0052d4, #4364f7, #6fb1fc);
+}
+
+.menu5 {
+  transform: rotateY(180deg);
+  background: linear-gradient(to right, #f46b45, #eea849);
+  z-index: 10;
+}
+.menu6 {
+  opacity: 0;
+  transform: scale(0);
+  background: black;
+  z-index: 9;
+}
+
+.data,
+.data2 {
+  padding: 8em 0 0 2em;
+  text-align: left;
+}
+
+ul {
+  list-style: none;
+}
+
+li:first-child {
+  color: grey;
+  font-family: Poppins;
+  font-size: 24px;
+}
+
+li:not(:first-child) {
+  color: #fff;
+  font-size: 42px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-family: Poppins;
+}
+.trigger-div {
+  height: 100vh;
+  background: url("/public/img/hero.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+
+.parent-menu5 {
+  transform-style: preserve-3d;
+  transition: perspective-origin 2s linear;
+  perspective: 350px;
+  perspective-origin: 0 0;
+}
+
+.button {
+  position: relative;
+  /* transform-origin: 50% 50%; */
+  top: 50%;
+  background-color: #82a4c6;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+.button:hover {
+  opacity: 0.7;
+}
